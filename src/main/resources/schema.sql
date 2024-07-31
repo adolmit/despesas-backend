@@ -20,9 +20,10 @@ CREATE TABLE FONTE (
 
 CREATE TABLE MOVIMENTACAO (
     id INTEGER PRIMARY KEY auto_increment,
-    anio INTEGER NOT NULL,
+    ano INTEGER NOT NULL,
     mes VARCHAR(10) NOT NULL,
     categoria_id INTEGER NOT NULL,
+    orgao_id INTEGER NOT NULL,
     modalidade_id INTEGER NOT NULL,
     fonte_id INTEGER NOT NULL,
     valor NUMERIC NOT NULL

@@ -27,6 +27,5 @@ public class CategoriaServiceImpl implements CategoriaService {
                         .build()
                 )
                 .collect(Collectors.toList());
-
     }
 }
