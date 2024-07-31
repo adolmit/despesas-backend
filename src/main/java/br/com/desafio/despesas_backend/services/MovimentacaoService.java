@@ -1,9 +1,9 @@
 package br.com.desafio.despesas_backend.services;
 
-import br.com.desafio.despesas_backend.dto.MovimentacaoResponseDTO;
-
-import java.util.List;
+import br.com.desafio.despesas_backend.dto.MovimentacaoPageDTO;
 
 public interface MovimentacaoService {
-    List<MovimentacaoResponseDTO> getMovimentacoes();
+
+    MovimentacaoPageDTO getMovimentacoesPagination(Integer page, Integer size);
+
 }
