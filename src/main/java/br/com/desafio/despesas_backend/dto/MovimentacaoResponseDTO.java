@@ -13,4 +13,5 @@ public class MovimentacaoResponseDTO {
     OrgaoResponseDTO orgao;
     ModalidadeResponseDTO modalidade;
     FonteResponseDTO fonte;
+    Double valor;
 }

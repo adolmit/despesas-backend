@@ -48,6 +48,7 @@ public class MovimentacaoServiceImpl implements MovimentacaoService {
                                         .nome(it.getFonte().getNome())
                                         .build()
                         )
+                        .valor(it.getValor())
                         .build()
                 )
                 .collect(Collectors.toList());
