@@ -23,5 +23,4 @@ public class CategoriaController {
     public ResponseEntity<List<CategoriaResponseDTO>> getCategorias(){
         return new ResponseEntity<>(this.categoriaService.getCategorias(), HttpStatus.OK);
     }
-
 }
