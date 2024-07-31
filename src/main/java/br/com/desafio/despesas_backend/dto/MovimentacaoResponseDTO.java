@@ -8,7 +8,7 @@ import lombok.Data;
 public class MovimentacaoResponseDTO {
     long id;
     Integer ano;
-    String mes;
+    Integer mes;
     CategoriaResponseDTO categoria;
     OrgaoResponseDTO orgao;
     ModalidadeResponseDTO modalidade;

@@ -14,7 +14,7 @@ public class MovimentacaoEntity {
     @Column
     private Integer ano;
     @Column
-    private String mes;
+    private Integer mes;
 
     @OneToOne
     @JoinColumn(name = "categoria_id", referencedColumnName = "id")
