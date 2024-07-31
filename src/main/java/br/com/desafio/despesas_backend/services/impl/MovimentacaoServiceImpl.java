@@ -8,7 +8,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -64,15 +63,4 @@ public class MovimentacaoServiceImpl implements MovimentacaoService {
                         )
                         .build();
     }
-
-    @Override
-    public List<ReporteMesDTO> getReportByMonth() {
-        return this.movimentacaoRepository.getReportByMonth();
-    }
-
-    @Override
-    public List<ReporteCategoriaDTO> getReportByCategory() {
-        return this.movimentacaoRepository.getReportByCategory();
-    }
-
 }

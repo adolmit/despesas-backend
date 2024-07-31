@@ -1,9 +1,6 @@
 package br.com.desafio.despesas_backend.controller;
 
-import br.com.desafio.despesas_backend.dto.MovimentacaoPageDTO;
-import br.com.desafio.despesas_backend.dto.MovimentacaoResponseDTO;
-import br.com.desafio.despesas_backend.dto.ReporteCategoriaDTO;
-import br.com.desafio.despesas_backend.dto.ReporteMesDTO;
+import br.com.desafio.despesas_backend.dto.*;
 import br.com.desafio.despesas_backend.services.MovimentacaoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,15 +23,5 @@ public class MovimentacaoController {
     public ResponseEntity<MovimentacaoPageDTO> getMovimentacoes(@RequestParam("page") Integer page,
                                                                 @RequestParam("size") Integer size){
         return new ResponseEntity<>(this.movimentacaoService.getMovimentacoesPagination(page, size), HttpStatus.OK);
-    }
-
-    @GetMapping(value="/mes")
-    public ResponseEntity<List<ReporteMesDTO>> getReporteMes(){
-        return new ResponseEntity<>(this.movimentacaoService.getReportByMonth(), HttpStatus.OK);
-    }
-
-    @GetMapping(value="/categoria")
-    public ResponseEntity<List<ReporteCategoriaDTO>> getReporteCategoria(){
-        return new ResponseEntity<>(this.movimentacaoService.getReportByCategory(), HttpStatus.OK);
     }
 }
