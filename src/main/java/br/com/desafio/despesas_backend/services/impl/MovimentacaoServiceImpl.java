@@ -69,4 +69,10 @@ public class MovimentacaoServiceImpl implements MovimentacaoService {
     public List<ReporteMesDTO> getReportByMonth() {
         return this.movimentacaoRepository.getReportByMonth();
     }
+
+    @Override
+    public List<ReporteCategoriaDTO> getReportByCategory() {
+        return this.movimentacaoRepository.getReportByCategory();
+    }
+
 }
