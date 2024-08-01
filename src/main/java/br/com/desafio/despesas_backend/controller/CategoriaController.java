@@ -18,6 +18,7 @@ public class CategoriaController {
     public CategoriaController(CategoriaService categoriaService){
         this.categoriaService=categoriaService;
     }
+
     @GetMapping
     public ResponseEntity<List<CategoriaResponseDTO>> getCategorias(){
         return new ResponseEntity<>(this.categoriaService.getCategorias(), HttpStatus.OK);

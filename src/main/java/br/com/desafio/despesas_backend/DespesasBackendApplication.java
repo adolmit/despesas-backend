@@ -15,24 +15,8 @@ import java.util.Arrays;
 @SpringBootApplication
 public class DespesasBackendApplication {
 
-	@Autowired
-	private Cors cors;
 	public static void main(String[] args) {
 		SpringApplication.run(DespesasBackendApplication.class, args);
 	}
 
-	@Bean
-	CorsFilter corsFilter() {
-		var config = new CorsConfiguration();
-		config.setAllowCredentials(cors.getAllowCredentials());
-		config.setAllowedOrigins(Arrays.asList(cors.getAllowOrigins().split(",")));
-		config.setAllowedHeaders(Arrays.asList(cors.getAllowHeaders().split(",")));
-		config.setAllowedMethods(Arrays.asList(cors.getAllowMethods().split(",")));
-		config.setMaxAge(Duration.ofSeconds(cors.getMaxAge()));
-
-		var source = new UrlBasedCorsConfigurationSource();
-		source.registerCorsConfiguration(cors.getMapping(), config);
-
-		return new CorsFilter(source);
-	}
 }

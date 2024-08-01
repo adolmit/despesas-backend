@@ -1,7 +1,15 @@
 package br.com.desafio.despesas_backend.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
+
+import java.time.Duration;
+import java.util.Arrays;
+
 @Configuration
 @ConfigurationProperties(prefix = "cors")
 public class Cors {
@@ -67,5 +75,21 @@ public class Cors {
 
     public boolean getAllowCredentials() {
         return allowCredentials;
+    }
+
+
+    @Bean
+    CorsFilter corsFilter() {
+        var config = new CorsConfiguration();
+        config.setAllowCredentials(this.getAllowCredentials());
+        config.setAllowedOrigins(Arrays.asList(this.getAllowOrigins().split(",")));
+        config.setAllowedHeaders(Arrays.asList(this.getAllowHeaders().split(",")));
+        config.setAllowedMethods(Arrays.asList(this.getAllowMethods().split(",")));
+        config.setMaxAge(Duration.ofSeconds(this.getMaxAge()));
+
+        var source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration(this.getMapping(), config);
+
+        return new CorsFilter(source);
     }
 }
